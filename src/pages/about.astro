@@ -1,0 +1,225 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import DnaSection from '../components/DnaSection.astro';
+import site from '../content/site-config.json';
+---
+
+<BaseLayout title="About">
+	<!-- Hero Section -->
+	<section class="relative bg-white">
+		<!-- White border wrapper - larger margins -->
+		<div class="p-8 sm:p-10 md:p-12 lg:p-14">
+			<!-- Image container -->
+			<div class="relative">
+				<img
+					src="/assets/images/sarah-headshot-about.jpg"
+					alt="Sarah Spencer"
+					class="w-full h-auto"
+				/>
+				<!-- Overlay text box - floating inside image area -->
+				<div class="absolute left-[2%] sm:left-[3%] md:left-[4%] bottom-[5%] sm:bottom-[8%] md:bottom-[10%] z-10">
+					<div class="bg-white px-8 sm:px-12 md:px-14 py-10 sm:py-12 md:py-14 w-[85vw] sm:w-[40vw] md:w-[35vw] lg:w-[30vw] max-w-[450px]">
+						<h1 class="font-light tracking-wide text-slate-900 font-serif leading-tight text-center" style="font-size: clamp(1.4rem, 1.8vw + 0.7rem, 2.1rem);">
+							<span class="block">LET'S DREAM BIG</span>
+							<span class="block"><em class="italic">TOGETHER</em></span>
+						</h1>
+						<p class="mt-5 sm:mt-6 text-base sm:text-lg text-slate-800 font-sans font-bold leading-relaxed text-center" style="line-height: 1.7;">
+							SJS is excited to be your collaborator in all things communications. It's nice to meet you!
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Meet Sarah Section -->
+	<section class="py-16 sm:py-20 md:py-24 bg-white">
+		<div class="mx-auto max-w-[1200px] px-[4vw]">
+			<!-- Heading -->
+			<h2 class="text-left text-slate-900 font-serif mb-10 sm:mb-14" style="font-size: calc(2.2vw + 1.2rem);">
+				MEET SARAH —
+			</h2>
+			<!-- Image - full width of container -->
+			<div class="mb-12 sm:mb-16">
+				<img
+					src="/assets/images/sarah-meet-section.jpg"
+					alt="Sarah Spencer"
+					class="w-full h-auto"
+					loading="lazy"
+					decoding="async"
+				/>
+			</div>
+			<!-- Bio -->
+			<h3 class="text-slate-900 font-serif italic text-2xl sm:text-3xl md:text-4xl mb-8 sm:mb-10">
+				SARAH SPENCER
+			</h3>
+			<div class="space-y-6 text-slate-800 text-lg sm:text-xl font-thin leading-relaxed" style="line-height: 1.8;">
+				<p>
+					<a href="https://www.linkedin.com/in/sarah-spencer" class="text-[#1399D7] hover:underline">Sarah Spencer</a> is a seasoned communications executive with over 25 years of experience in the biotech, pharmaceutical, and healthcare sectors. Most recently she served as Vice President of Corporate Communications and Investor Relations at Vor Bio, where she led all external and internal communications strategies for the NASDAQ-listed cell and genome engineering company. In this role, she has been instrumental in supporting major financing events, rebuilding the company's brand messaging and website, and leading employee engagement initiatives across the organization.
+				</p>
+				<p>
+					Previously, Sarah was Vice President of Corporate Communications at Audentes Therapeutics, where she led communications through its $3 billion acquisition by Astellas and the company's integration thereafter. She also spent over a decade at GlaxoSmithKline (GSK) in roles of increasing responsibility, including Acting Vice President of U.S. Communications, and Director of Global Corporate Media. While at GSK, she led communications for business-critical initiatives such as M&A, financial results, regulatory issues, and international crises.
+				</p>
+				<p>
+					Sarah began her career in public relations at Rite Aid Corporation and held leadership roles at Elan Pharmaceuticals and Berry & Company Public Relations. She holds a B.A. in Communication and Psychology from the State University of New York at Buffalo.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Core Philosophy Section -->
+	<section class="relative py-24 sm:py-32 md:py-40 overflow-hidden">
+		<!-- Background image -->
+		<div class="absolute inset-0">
+			<div
+				class="absolute inset-0 w-full h-full bg-cover bg-center"
+				style="background-image: url('/assets/images/about-patient-bg.png');"
+			></div>
+		</div>
+		<!-- Content -->
+		<div class="relative z-10 mx-auto max-w-[1000px] px-[4vw]">
+			<p class="text-slate-900 text-lg sm:text-xl md:text-2xl font-sans font-thin leading-relaxed text-center" style="line-height: 1.8;">
+				We drive our communication strategies with human connection at the forefront. We know that relationships are key—both with our clients and between our clients and their stakeholders. We conduct ourselves with people and patients at the center of everything we do, and always value diverse perspectives.
+			</p>
+		</div>
+	</section>
+
+	<!-- Sarah's Communication Strategies Section -->
+	<section class="relative">
+		<!-- Purple header bar - taller -->
+		<div class="bg-[#4F3F90] py-12 sm:py-16 md:py-20">
+			<h2 class="text-center text-white font-serif font-light italic text-2xl sm:text-3xl md:text-4xl tracking-wide">
+				SARAH'S COMMUNICATION STRATEGIES <em>AT WORK</em>
+			</h2>
+		</div>
+		<!-- Image carousel -->
+		<div class="relative bg-white">
+			<!-- Left arrow -->
+			<button
+				id="carousel-prev"
+				class="absolute left-0 top-0 bottom-0 z-10 w-12 sm:w-16 flex items-center justify-center bg-white/90 hover:bg-white transition-colors"
+				aria-label="Previous images"
+			>
+				<svg class="w-8 h-8 sm:w-10 sm:h-10 text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 19l-7-7 7-7" />
+				</svg>
+			</button>
+			<!-- Right arrow -->
+			<button
+				id="carousel-next"
+				class="absolute right-0 top-0 bottom-0 z-10 w-12 sm:w-16 flex items-center justify-center bg-white/90 hover:bg-white transition-colors"
+				aria-label="Next images"
+			>
+				<svg class="w-8 h-8 sm:w-10 sm:h-10 text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5l7 7-7 7" />
+				</svg>
+			</button>
+			<!-- Scrollable image container -->
+			<div
+				id="carousel-container"
+				class="flex overflow-x-auto scroll-smooth gap-0 hide-scrollbar"
+				style="scrollbar-width: none; -ms-overflow-style: none;"
+			>
+				<img src="/assets/images/carousel-1.jpg" alt="Sarah at work" class="h-64 sm:h-80 md:h-96 w-auto flex-shrink-0 object-cover" />
+				<img src="/assets/images/carousel-2.jpg" alt="PharmaVoice" class="h-64 sm:h-80 md:h-96 w-auto flex-shrink-0 object-cover" />
+				<img src="/assets/images/carousel-3.jpg" alt="Media appearance" class="h-64 sm:h-80 md:h-96 w-auto flex-shrink-0 object-cover" />
+				<img src="/assets/images/carousel-4.jpg" alt="Interview" class="h-64 sm:h-80 md:h-96 w-auto flex-shrink-0 object-cover" />
+				<img src="/assets/images/carousel-5.jpg" alt="Conference" class="h-64 sm:h-80 md:h-96 w-auto flex-shrink-0 object-cover" />
+				<img src="/assets/images/carousel-6.png" alt="Bloomberg" class="h-64 sm:h-80 md:h-96 w-auto flex-shrink-0 object-cover" />
+				<img src="/assets/images/carousel-7.jpg" alt="Event" class="h-64 sm:h-80 md:h-96 w-auto flex-shrink-0 object-cover" />
+				<img src="/assets/images/carousel-8.jpg" alt="Speaking" class="h-64 sm:h-80 md:h-96 w-auto flex-shrink-0 object-cover" />
+				<img src="/assets/images/carousel-9.jpg" alt="Media" class="h-64 sm:h-80 md:h-96 w-auto flex-shrink-0 object-cover" />
+				<img src="/assets/images/carousel-10.jpg" alt="Press" class="h-64 sm:h-80 md:h-96 w-auto flex-shrink-0 object-cover" />
+				<img src="/assets/images/carousel-11.png" alt="Fortune" class="h-64 sm:h-80 md:h-96 w-auto flex-shrink-0 object-cover" />
+				<img src="/assets/images/carousel-12.png" alt="Coverage" class="h-64 sm:h-80 md:h-96 w-auto flex-shrink-0 object-cover" />
+			</div>
+		</div>
+	</section>
+
+	<script>
+		const container = document.getElementById('carousel-container');
+		const prevBtn = document.getElementById('carousel-prev');
+		const nextBtn = document.getElementById('carousel-next');
+		const scrollAmount = 400;
+
+		prevBtn?.addEventListener('click', () => {
+			container?.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+		});
+
+		nextBtn?.addEventListener('click', () => {
+			container?.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+		});
+	</script>
+
+	<style>
+		.hide-scrollbar::-webkit-scrollbar {
+			display: none;
+		}
+	</style>
+
+	<!-- Lab Scientists Image -->
+	<section class="overflow-hidden">
+		<img
+			src="/assets/images/about-engineering-bg.jpg"
+			alt="Scientists collaborating in laboratory"
+			class="w-full object-cover"
+			style="height: 500px; object-position: center 25%;"
+		/>
+	</section>
+
+	<!-- Our Ethos Section -->
+	<section class="py-16 sm:py-20 md:py-24 bg-white">
+		<div class="mx-auto max-w-[1100px] px-[4vw]">
+			<h2 class="text-left text-slate-900 font-serif mb-10 sm:mb-14" style="font-size: calc(2.2vw + 1.2rem);">
+				OUR <em class="italic">ETHOS</em>
+			</h2>
+			<p class="text-slate-800 text-lg sm:text-xl font-thin leading-relaxed text-left" style="line-height: 1.8;">
+				SJS Communications was founded by Sarah Spencer. When you work with SJS, you get Sarah's one-on-one attention. More than that, we're excited to develop a relationship with you! Having fun, having a sense of humor and being authentic are our style. At the same time, the work we do is serious and potentially life-changing for patient populations we serve. Trust, integrity, and reputation are everything and we understand that. We work hard but living life to its fullest outside of work is also our priority.
+			</p>
+			<img
+				src="/assets/images/ethos-family.jpg"
+				alt="Sarah with family"
+				class="w-full h-auto mt-12 sm:mt-16"
+			/>
+		</div>
+	</section>
+
+	<!-- Our Commitment Section -->
+	<section class="relative py-20 sm:py-28 md:py-36 overflow-hidden" style="background: linear-gradient(135deg, #00d4d4 0%, #4a90c2 25%, #6366f1 50%, #8b5cf6 75%, #a855f7 100%);">
+		<!-- Content -->
+		<div class="relative z-10 mx-auto max-w-[1200px] px-[4vw]">
+			<h2 class="text-center text-white font-serif font-light italic mb-16 sm:mb-20" style="font-size: calc(2.2vw + 1.2rem);">
+				OUR <em>COMMITMENT</em>
+			</h2>
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 items-stretch">
+				<!-- Card 1 -->
+				<div class="relative h-full">
+					<div class="absolute inset-0 rounded-sm" style="background: linear-gradient(135deg, rgba(100,150,200,0.5) 0%, rgba(150,100,180,0.5) 100%);"></div>
+					<div class="relative bg-white m-2 px-6 py-10 text-center h-[calc(100%-16px)] flex flex-col justify-center">
+						<p class="text-slate-900 font-serif italic text-2xl sm:text-3xl md:text-4xl font-light">30 YEARS</p>
+						<p class="mt-4 text-slate-700 text-sm sm:text-base font-medium">Experience in the healthcare industry</p>
+					</div>
+				</div>
+				<!-- Card 2 -->
+				<div class="relative h-full">
+					<div class="absolute inset-0 rounded-sm" style="background: linear-gradient(135deg, rgba(150,100,180,0.5) 0%, rgba(200,100,150,0.5) 100%);"></div>
+					<div class="relative bg-white m-2 px-6 py-10 text-center h-[calc(100%-16px)] flex flex-col justify-center">
+						<p class="text-slate-900 font-serif italic text-2xl sm:text-3xl md:text-4xl font-light">MILLIONS</p>
+						<p class="mt-4 text-slate-700 text-sm sm:text-base font-medium">Hours devoted to thoughtful communications</p>
+					</div>
+				</div>
+				<!-- Card 3 -->
+				<div class="relative h-full">
+					<div class="absolute inset-0 rounded-sm" style="background: linear-gradient(135deg, rgba(100,150,200,0.5) 0%, rgba(150,100,180,0.5) 100%);"></div>
+					<div class="relative bg-white m-2 px-6 py-10 text-center h-[calc(100%-16px)] flex flex-col justify-center">
+						<p class="text-slate-900 font-serif italic text-2xl sm:text-3xl md:text-4xl font-light">PRICELESS</p>
+						<p class="mt-4 text-slate-700 text-sm sm:text-base font-medium">Time spent growing relationships and having fun - at work and in life.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- DNA Section -->
+	<DnaSection />
+</BaseLayout>

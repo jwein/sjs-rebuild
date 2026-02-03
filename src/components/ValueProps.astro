@@ -1,0 +1,63 @@
+---
+import site from '../content/site-config.json';
+const items = (site as any).valueProps ?? [];
+
+const gridCols =
+	items.length >= 4
+		? 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-4'
+		: 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3';
+---
+
+<section aria-labelledby="value-props-heading" class="py-24 sm:py-32 bg-white">
+	<div class="mx-auto max-w-[700px] px-[4vw]">
+		<h2 id="value-props-heading" class="text-center text-slate-900 font-serif text-3xl sm:text-4xl md:text-5xl mb-12 sm:mb-16">
+			<span class="font-normal">WHAT SETS US</span>
+			<span class="italic ml-2">APART</span>
+		</h2>
+
+		<div class={`grid ${gridCols} gap-0 justify-items-center -mx-4 lg:-mx-8`}>
+			{items.map((item, idx) => {
+				const lines =
+					(item && (item as any).lines && Array.isArray((item as any).lines) && (item as any).lines.length > 0)
+						? (item as any).lines
+						: [ (item as any).eyebrow, (item as any).line2, (item as any).line3 ].filter(Boolean);
+				const imageSrc = (item as any).image;
+				const imageAlt = (item as any).alt ?? '';
+				// Default sizes used to avoid CLS; assets are 500x500 according to spec
+				const imageWidth = 500;
+				const imageHeight = 500;
+				return (
+					<figure class="flex flex-col items-center text-center">
+						{imageSrc ? (
+							<img
+								src={imageSrc}
+								alt={imageAlt}
+								width={imageWidth}
+								height={imageHeight}
+								loading="lazy"
+								decoding="async"
+								sizes="(min-width: 1024px) 14rem, 11rem"
+								class="h-36 w-36 sm:h-40 sm:w-40 lg:h-44 lg:w-44 rounded-full object-cover"
+							/>
+						) : null}
+						<figcaption class="mt-5 sm:mt-6">
+							{lines && lines.length > 0 ? (
+								<div class="text-[#1e3a5f] font-bold uppercase tracking-wider leading-[2.5] text-base sm:text-lg">
+									{lines.map((line) => (
+										<span class="block">{line}</span>
+									))}
+								</div>
+							) : (item as any).title ? (
+								<div class="text-[#1e3a5f] font-bold uppercase tracking-wider leading-[2.5] text-base sm:text-lg">
+									<span class="block">{(item as any).title}</span>
+								</div>
+							) : null}
+						</figcaption>
+					</figure>
+				);
+			})}
+		</div>
+	</div>
+</section>
+
+

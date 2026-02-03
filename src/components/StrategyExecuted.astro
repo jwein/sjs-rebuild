@@ -1,0 +1,33 @@
+---
+import site from '../content/site-config.json';
+const strategy = (site as any).strategy ?? {};
+const left = strategy.left ?? {};
+const right = strategy.right ?? {};
+---
+
+<section aria-labelledby="strategy-heading" class="bg-[#1399D7]">
+	<div class="mx-auto max-w-[1400px] px-[4vw] py-16 sm:py-20">
+		<h2 id="strategy-heading" class="text-center text-white font-serif text-3xl sm:text-4xl md:text-5xl">
+			<span class="font-bold tracking-wider">STRATEGY</span>
+			<span class="italic ml-3">EXECUTED</span>
+		</h2>
+		<div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 text-white">
+			<div class="text-xl leading-9 font-sans font-semibold">
+				<p>
+					{left.paragraph}
+					{' '}
+					<a href="/about#driveresults" class="underline underline-offset-4 text-white">
+						drive results
+					</a>
+					{' '}
+					{left.afterLink}
+				</p>
+			</div>
+			<div class="text-xl leading-9 font-sans font-semibold">
+				<p>{right.paragraph}</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+

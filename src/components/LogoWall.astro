@@ -1,0 +1,113 @@
+---
+import clientsData from '../content/clients.json';
+
+type Client = {
+	name: string;
+	logo: string;
+	url: string | null;
+	active?: boolean;
+};
+
+const clients: Client[] = (clientsData as any).clients.filter((c: Client) => c.active !== false);
+// Duplicate array once for seamless marquee loop
+const marqueeItems: Client[] = [...clients, ...clients];
+---
+
+<section aria-label="Client logos" class="py-10">
+	<div class="mx-auto max-w-[1400px] px-[4vw]">
+		<h2 class="text-center text-3xl sm:text-4xl font-bold font-serif text-slate-900 mb-8 sm:mb-10">OUR WORK</h2>
+
+		<!-- Animated marquee (default) -->
+		<div class="marquee relative overflow-hidden">
+			<div class="track flex items-center gap-12">
+				{marqueeItems.map((client) => {
+					const logoImg = (
+						<img
+							src={client.logo}
+							alt={client.name}
+							height="64"
+							decoding="async"
+							loading="lazy"
+							draggable="false"
+							onerror={`this.onerror=null;this.src='/assets/logos/placeholder.svg'`}
+							class="h-12 sm:h-14 md:h-16 w-auto object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition duration-200 ease-out"
+						/>
+					);
+					return (
+						<div class="shrink-0 px-4 flex items-center h-16 sm:h-20 md:h-24" aria-label={client.name}>
+							{client.url ? (
+								<a href={client.url} target="_blank" rel="noopener noreferrer" class="inline-flex items-center">
+									{logoImg}
+								</a>
+							) : (
+								logoImg
+							)}
+						</div>
+					);
+				})}
+			</div>
+		</div>
+
+		<!-- Reduced-motion fallback: static responsive grid -->
+		<div class="logo-grid mt-2 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-6 items-center">
+			{clients.map((client) => {
+				const logoImg = (
+					<img
+						src={client.logo}
+						alt={client.name}
+						height="64"
+						decoding="async"
+						loading="lazy"
+						draggable="false"
+						onerror={`this.onerror=null;this.src='/assets/logos/placeholder.svg'`}
+						class="mx-auto h-12 sm:h-14 md:h-16 w-auto object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition duration-200 ease-out"
+					/>
+				);
+				return (
+					<div class="col-span-1 flex items-center justify-center h-16 sm:h-20 md:h-24" aria-label={client.name}>
+						{client.url ? (
+							<a href={client.url} target="_blank" rel="noopener noreferrer" class="inline-flex items-center">
+								{logoImg}
+							</a>
+						) : (
+							logoImg
+						)}
+					</div>
+				);
+			})}
+		</div>
+	</div>
+
+	<style>
+		/* Fade edges for a polished marquee appearance */
+		.marquee {
+			--mask: linear-gradient(to right, rgba(0,0,0,0), #000 6%, #000 94%, rgba(0,0,0,0));
+			-webkit-mask-image: var(--mask);
+			mask-image: var(--mask);
+			/* Reserve height to avoid CLS */
+			min-height: 6rem;
+		}
+		.track {
+			/* 2x content; scroll one full set width to loop seamlessly */
+			animation: scroll-x var(--marquee-duration, 40s) linear infinite;
+			will-change: transform;
+		}
+		@keyframes scroll-x {
+			from {
+				transform: translateX(0);
+			}
+			to {
+				transform: translateX(-50%);
+			}
+		}
+		/* Reduced motion: disable marquee, show grid instead */
+		@media (prefers-reduced-motion: reduce) {
+			.marquee { display: none; }
+			.logo-grid { display: grid; }
+		}
+		/* Default: show marquee, hide grid version */
+		.logo-grid { display: none; }
+	</style>
+</section>
+
+

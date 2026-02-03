@@ -1,0 +1,238 @@
+---
+import site from '../content/site-config.json';
+
+const currentPath = Astro.url.pathname;
+---
+
+<header data-site-header class="sticky top-0 z-50 bg-white transition-shadow">
+	<div class="px-4 sm:px-6 py-[6vw] lg:py-[3vw] flex items-center justify-between">
+		<a href="/" class="inline-flex items-center shrink-0" aria-label={site.site.name}>
+			<img
+				src={site.branding.logo}
+				alt={site.site.name}
+				class="h-[75px] lg:h-[113px] w-auto"
+				loading="eager"
+				decoding="async"
+				fetchpriority="high"
+			/>
+			<span class="sr-only">{site.site.name}</span>
+		</a>
+		<nav aria-label="Main" class="hidden lg:flex items-center gap-8">
+			{site.navigation.map((item) => (
+				<a
+					href={item.href}
+					class={`text-base font-normal uppercase tracking-[0.2em] hover:text-teal-600 ${currentPath === item.href ? 'text-slate-700 underline underline-offset-8 decoration-2' : 'text-slate-700'}`}
+				>
+					{item.label}
+				</a>
+			))}
+			{site.social?.linkedin && (
+				<a
+					href={site.social.linkedin}
+					target="_blank"
+					rel="noopener noreferrer"
+					aria-label="LinkedIn"
+					class="inline-flex items-center text-slate-900 hover:text-teal-600"
+				>
+					<img
+						src="/assets/images/linkedin-icon.png"
+						alt="LinkedIn"
+						class="h-7 w-7 rounded-sm"
+						loading="eager"
+						decoding="async"
+					/>
+				</a>
+			)}
+			<a href="/services" class="ml-4 px-7 py-4 rounded-full bg-[#1399D7] text-white text-base font-light uppercase tracking-[0.2em] hover:bg-[#0d7ab3] transition">
+				GET STARTED
+			</a>
+		</nav>
+		<button
+			id="mobile-menu-button"
+			class="lg:hidden inline-flex items-center p-2 text-slate-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-600"
+			aria-label="Open menu"
+			aria-controls="mobile-menu"
+			aria-expanded="false"
+			type="button"
+		>
+			<span class="sr-only">Open menu</span>
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-6 w-6" aria-hidden="true">
+				<path fill="currentColor" d="M3 6h18v2H3V6Zm0 5h18v2H3v-2Zm0 5h18v2H3v-2Z"/>
+			</svg>
+		</button>
+	</div>
+
+	<!-- Mobile menu (drawer) -->
+	<div
+		id="mobile-menu-root"
+		class="lg:hidden"
+	>
+		<div
+			id="mobile-menu"
+			class="fixed inset-0 z-50 hidden"
+			role="dialog"
+			aria-modal="true"
+		>
+			<!-- Backdrop -->
+			<div id="mobile-menu-backdrop" class="absolute inset-0 bg-black/40"></div>
+			<!-- Panel -->
+			<div
+				id="mobile-menu-panel"
+				class="ml-auto h-full w-80 max-w-[85%] bg-white shadow-xl ring-1 ring-slate-200 flex flex-col"
+				tabindex="-1"
+			>
+				<div class="flex items-center justify-between px-4 py-3 border-b border-slate-200">
+					<a href="/" class="inline-flex items-center" aria-label={site.site.name}>
+						<img src={site.branding.logoMobile} alt={site.site.name} class="h-8 w-auto" loading="eager" decoding="async" />
+					</a>
+					<button
+						id="mobile-menu-close"
+						type="button"
+						class="inline-flex items-center rounded-md p-2 text-slate-700 ring-1 ring-slate-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-600"
+						aria-label="Close menu"
+					>
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-6 w-6" aria-hidden="true">
+							<path fill="currentColor" d="M18.3 5.71 12 12l6.3 6.29-1.41 1.42L10.59 13.4 4.3 19.71 2.89 18.3 9.18 12 2.89 5.71 4.3 4.29 10.59 10.6l6.3-6.31 1.41 1.42Z"/>
+						</svg>
+					</button>
+				</div>
+				<nav class="flex-1 overflow-y-auto px-4 py-4" aria-label="Mobile">
+					<ul class="space-y-2">
+						{site.navigation.map((item) => (
+							<li>
+								<a
+									href={item.href}
+									class={`block rounded-md px-3 py-2 text-sm font-semibold uppercase tracking-wide hover:bg-slate-50 ${currentPath === item.href ? 'text-teal-700' : 'text-slate-700'}`}
+								>
+									{item.label}
+								</a>
+							</li>
+						))}
+					</ul>
+				</nav>
+				{site.social?.linkedin && (
+					<div class="px-4 py-4 border-t border-slate-200">
+						<a
+							href={site.social.linkedin}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="inline-flex items-center gap-2 text-slate-700 hover:text-teal-600"
+							aria-label="LinkedIn"
+						>
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" class="h-5 w-5">
+								<path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.03-1.85-3.03-1.86 0-2.14 1.45-2.14 2.94v5.66H9.34V9.75h3.42v1.46h.05c.48-.9 1.64-1.85 3.38-1.85 3.62 0 4.29 2.38 4.29 5.47v5.62ZM6.18 8.29a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14ZM7.96 20.45H4.39V9.75h3.57v10.7Z"/>
+							</svg>
+							<span class="text-sm font-medium">LinkedIn</span>
+						</a>
+					</div>
+				)}
+			</div>
+		</div>
+	</div>
+
+	<script>
+		// Scroll shadow on header (no CLS; box-shadow only)
+		const headerEl = document.querySelector('header[data-site-header]');
+		function updateHeaderShadow() {
+			if (!headerEl) return;
+			const scrolled = window.scrollY > 0;
+			headerEl.classList.toggle('shadow-sm', scrolled);
+		}
+		updateHeaderShadow();
+		window.addEventListener('scroll', updateHeaderShadow, { passive: true });
+
+		const openBtn = document.getElementById('mobile-menu-button');
+		const root = document.getElementById('mobile-menu');
+		const panel = document.getElementById('mobile-menu-panel');
+		const backdrop = document.getElementById('mobile-menu-backdrop');
+		const closeBtn = document.getElementById('mobile-menu-close');
+
+		function toggleInert(inert) {
+			const main = document.querySelector('main');
+			const footer = document.querySelector('footer');
+			[main, footer].forEach((el) => {
+				if (!el) return;
+				if (inert) {
+					el.setAttribute('inert', '');
+					el.setAttribute('aria-hidden', 'true');
+				} else {
+					el.removeAttribute('inert');
+					el.removeAttribute('aria-hidden');
+				}
+			});
+			document.documentElement.classList.toggle('overflow-hidden', inert);
+			document.body.classList.toggle('overflow-hidden', inert);
+		}
+
+		function getFocusable(container) {
+			if (!container) return [];
+			const selectors = [
+				'a[href]',
+				'area[href]',
+				'input:not([disabled])',
+				'select:not([disabled])',
+				'textarea:not([disabled])',
+				'button:not([disabled])',
+				'iframe',
+				'[tabindex]:not([tabindex="-1"])',
+				'[contenteditable="true"]'
+			].join(',');
+			return Array.from(container.querySelectorAll(selectors)).filter((el) => {
+				return !!(el).offsetParent || el === container;
+			});
+		}
+
+		function openMenu() {
+			if (!root || !panel || !openBtn) return;
+			root.classList.remove('hidden');
+			openBtn.setAttribute('aria-expanded', 'true');
+			toggleInert(true);
+			// Focus trap: focus first focusable in panel
+			const focusables = getFocusable(panel);
+			(focusables[0] || panel).focus();
+		}
+
+		function closeMenu() {
+			if (!root || !panel || !openBtn) return;
+			root.classList.add('hidden');
+			openBtn.setAttribute('aria-expanded', 'false');
+			toggleInert(false);
+			openBtn.focus();
+		}
+
+		function onKeyDown(e) {
+			if (!root || root.classList.contains('hidden')) return;
+			if (e.key === 'Escape') {
+				e.preventDefault();
+				closeMenu();
+				return;
+			}
+			if (e.key === 'Tab') {
+				// Trap focus within panel
+				const focusables = getFocusable(panel);
+				if (focusables.length === 0) return;
+				const first = focusables[0];
+				const last = focusables[focusables.length - 1];
+				const active = document.activeElement;
+				if (e.shiftKey) {
+					if (active === first || !panel.contains(active)) {
+						e.preventDefault();
+						last.focus();
+					}
+				} else {
+					if (active === last) {
+						e.preventDefault();
+						first.focus();
+					}
+				}
+			}
+		}
+
+		openBtn?.addEventListener('click', openMenu);
+		closeBtn?.addEventListener('click', closeMenu);
+		backdrop?.addEventListener('click', closeMenu);
+		document.addEventListener('keydown', onKeyDown);
+	</script>
+</header>
+
+

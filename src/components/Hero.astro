@@ -1,0 +1,89 @@
+---
+import site from '../content/site-config.json';
+const hero = (site as any).hero ?? {};
+---
+
+<section aria-labelledby="hero-heading" class="relative isolate overflow-hidden">
+	<!-- Background image with parallax effect -->
+	<div class="absolute inset-0 overflow-hidden">
+		<div
+			id="hero-parallax-bg"
+			class="absolute inset-0 w-full h-[130%] bg-cover bg-left md:bg-center will-change-transform"
+			style={`background-image: url(${hero.backgroundImage ?? '/assets/images/hero-background.jpg'})`}
+		></div>
+	</div>
+	<!-- Content -->
+	<div class="relative z-20 mx-auto max-w-[1400px] px-[4vw]">
+		<div class="min-h-[60vh] sm:min-h-[65vh] md:min-h-[70vh] lg:min-h-[80vh] grid grid-cols-1 lg:grid-cols-12 items-center">
+			{hero.showPortrait && (
+				<div class="flex justify-center mb-8 lg:mb-0 lg:col-span-6">
+					<div class="relative w-full max-w-[280px] sm:max-w-[340px] lg:max-w-[400px] aspect-[4/5] min-h-[320px] sm:min-h-[380px] lg:min-h-[450px] overflow-hidden">
+						<img
+							src={hero.portraitImage ?? (site as any).founder?.image ?? '/assets/images/sarah-headshot.jpg'}
+							alt={hero.portraitAlt ?? (site as any).founder?.name ?? 'Founder portrait'}
+							class="absolute inset-0 h-full w-full object-cover object-center grayscale"
+							loading="eager"
+							decoding="async"
+							onerror="this.onerror=null;this.src='/assets/images/portrait-placeholder.svg';"
+						/>
+					</div>
+				</div>
+			)}
+			<div class={`w-full ${hero.showPortrait ? 'lg:col-span-6' : 'lg:col-span-12'} text-center lg:text-left`}>
+				<p class="small-caps text-base sm:text-lg md:text-xl font-bold tracking-widest text-slate-900/90">
+					{hero.subtitle}
+				</p>
+				<h1 id="hero-heading" class="mt-3 text-3xl sm:text-4xl md:text-5xl font-light tracking-tight text-slate-900 font-serif whitespace-pre-line">
+					{hero.title}
+				</h1>
+				{(hero.showBody ?? false) && (
+					<p class={`mt-6 ${hero.showPortrait ? 'lg:ml-0' : ''} mx-auto lg:mx-0 max-w-3xl text-base sm:text-lg md:text-xl text-slate-800 font-sans`}>
+						{hero.body}{' '}
+						<a
+							href={hero.bodyLinkHref ?? '/about#driveresults'}
+							class="font-semibold text-slate-900 underline underline-offset-4 hover:underline"
+						>
+							{hero.bodyLinkText ?? 'drive results'}
+						</a>{' '}
+						{hero.bodyEnd}
+					</p>
+				)}
+				<div class="mt-8 flex justify-center lg:justify-start">
+					<a
+						href={hero.ctaHref ?? '/contact'}
+						class="btn rounded-full font-serif font-light text-white bg-[#4F3F90] hover:bg-[#3d3070] px-8 sm:px-10 py-3 sm:py-4 text-base sm:text-lg tracking-wider"
+						aria-label={hero.ctaText ?? 'LEVEL UP WITH US'}
+					>
+						{hero.ctaText ?? 'LEVEL UP WITH US'}
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		// Parallax effect: background moves faster than scroll (reveals more of bottom)
+		const parallaxBg = document.getElementById('hero-parallax-bg');
+		const heroSection = parallaxBg?.closest('section');
+
+		function updateParallax() {
+			if (!parallaxBg || !heroSection) return;
+			const scrollY = window.scrollY;
+			const sectionHeight = heroSection.offsetHeight;
+
+			// Only apply effect while hero is visible
+			if (scrollY < sectionHeight) {
+				// Move background up faster than scroll (negative translateY)
+				// Factor of 0.1 means background moves 10% faster
+				const offset = scrollY * 0.1;
+				parallaxBg.style.transform = `translateY(-${offset}px)`;
+			}
+		}
+
+		// Respect reduced motion preference
+		if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+			window.addEventListener('scroll', updateParallax, { passive: true });
+			updateParallax();
+		}
+	</script>
+</section>

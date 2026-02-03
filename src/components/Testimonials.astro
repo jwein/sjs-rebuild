@@ -1,0 +1,101 @@
+---
+import data from '../content/testimonials.json';
+import site from '../content/site-config.json';
+
+type Testimonial = {
+	quote: string;
+	author: string;
+	title?: string | null;
+	company?: string | null;
+};
+
+const testimonials: Testimonial[] = (data as any).testimonials ?? [];
+const sectionTitle = (site as any).testimonials?.sectionTitle ?? 'CLIENT LOVE';
+const sectionBg = (site as any).testimonials?.backgroundColor ?? '#1399D7';
+---
+
+<section aria-labelledby="testimonials-heading" class="py-20 sm:py-28 lg:py-32" style={`background-color: ${sectionBg};`}>
+	<div class="mx-auto max-w-[1100px] px-[4vw]">
+		<!-- Heading -->
+		<h2 id="testimonials-heading" class="text-left text-white font-serif text-3xl sm:text-4xl md:text-5xl mb-12 sm:mb-16">
+			<span class="font-normal tracking-wide">CLIENT</span>
+			<span class="italic ml-2">LOVE</span>
+		</h2>
+
+		<!-- Carousel container -->
+		<div class="relative" id="testimonial-carousel">
+			<!-- Navigation arrows -->
+			<div class="flex justify-end gap-2 mb-6">
+				<button
+					id="testimonial-prev"
+					class="text-white/70 hover:text-white transition p-1"
+					aria-label="Previous testimonial"
+				>
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+					</svg>
+				</button>
+				<button
+					id="testimonial-next"
+					class="text-white/70 hover:text-white transition p-1"
+					aria-label="Next testimonial"
+				>
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+					</svg>
+				</button>
+			</div>
+
+			<!-- Testimonials -->
+			<div class="overflow-hidden">
+				{testimonials.map((t, idx) => (
+					<article
+						class={`testimonial-slide text-center ${idx === 0 ? '' : 'hidden'}`}
+						data-index={idx}
+					>
+						<blockquote class="text-white">
+							<p class="text-base sm:text-lg md:text-xl leading-relaxed font-normal">
+								"{t.quote}"
+							</p>
+							<footer class="mt-8">
+								<cite class="not-italic font-bold text-base sm:text-lg">
+									-{t.author}{t.title ? `, ${t.title}` : ''}{t.company ? `, ${t.company}` : ''}
+								</cite>
+							</footer>
+						</blockquote>
+					</article>
+				))}
+			</div>
+		</div>
+	</div>
+</section>
+
+<script>
+	const slides = document.querySelectorAll('.testimonial-slide');
+	const prevBtn = document.getElementById('testimonial-prev');
+	const nextBtn = document.getElementById('testimonial-next');
+	let currentIndex = 0;
+
+	function showSlide(index: number) {
+		slides.forEach((slide, i) => {
+			if (i === index) {
+				slide.classList.remove('hidden');
+			} else {
+				slide.classList.add('hidden');
+			}
+		});
+	}
+
+	function nextSlide() {
+		currentIndex = (currentIndex + 1) % slides.length;
+		showSlide(currentIndex);
+	}
+
+	function prevSlide() {
+		currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+		showSlide(currentIndex);
+	}
+
+	prevBtn?.addEventListener('click', prevSlide);
+	nextBtn?.addEventListener('click', nextSlide);
+</script>

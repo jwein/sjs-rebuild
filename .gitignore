@@ -1,0 +1,38 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Environment variables
+.env
+.env.local
+.env.production
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Astro
+.astro/
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Scraped/reference files (may contain third-party API keys)
+docs/SJS Communications_files/
+docs/sjscomms_scrape/
+docs/SJS Communications.html
+docs/sourceforsjssite.html
+
+# Temporary and test directories
+tmp/
+test-deploy-pair-pr/

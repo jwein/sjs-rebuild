@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl:*)",
+      "Bash(wc:*)",
+      "WebFetch(domain:www.sjscomms.com)"
+    ]
+  }
+}

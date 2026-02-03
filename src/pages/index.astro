@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import site from '../content/site-config.json';
+import Hero from '../components/Hero.astro';
+import StrategyExecuted from '../components/StrategyExecuted.astro';
+import ValueProps from '../components/ValueProps.astro';
+import SarahIntro from '../components/SarahIntro.astro';
+import AboutPreview from '../components/AboutPreview.astro';
+import Testimonials from '../components/Testimonials.astro';
+import CtaButtons from '../components/CtaButtons.astro';
+import LogoWall from '../components/LogoWall.astro';
+import DnaSection from '../components/DnaSection.astro';
+---
+
+<BaseLayout title="Home" description={site.site.description}>
+	<!-- Organization JSON-LD -->
+	{
+		// Inline JSON-LD for Organization schema
+	}
+	<script type="application/ld+json">
+		{JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "Organization",
+			"name": site.site.name,
+			"url": site.site.url,
+			"email": site.site.email,
+			"address": {
+				"@type": "PostalAddress",
+				"addressLocality": site.site.location
+			}
+		})}
+	</script>
+
+	<!-- 1. Hero -->
+	<Hero />
+
+	<!-- 2. Strategy Executed -->
+	<StrategyExecuted />
+
+	<!-- 3. Value Props -->
+	<ValueProps />
+
+	<!-- 4. "Hey! I'm Sarah" intro with full-bleed photo -->
+	<SarahIntro />
+
+	<!-- 5. "We're Small" poster -->
+	<AboutPreview />
+
+	<!-- 6. Testimonials -->
+	<Testimonials />
+
+	<!-- 7. CTA Buttons (Contact / Services) -->
+	<CtaButtons />
+
+	<!-- 8. "Our Work" Logo Wall -->
+	<LogoWall />
+
+	<!-- 9. "Creative Communications" DNA section -->
+	<DnaSection />
+</BaseLayout>

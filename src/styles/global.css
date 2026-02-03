@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base theme tokens derived from site-config where feasible (colors applied via classes) */
+:root {
+	--color-bg: #ffffff;
+	--color-fg: #0f172a; /* slate-900 */
+	--color-brand-primary: #1399d7;
+	--color-brand-secondary: #0d9488;
+}
+
+html,
+body {
+	height: 100%;
+}
+
+body {
+	background: var(--color-bg);
+	color: var(--color-fg);
+}
+
+@layer base {
+	/* Typography defaults */
+	body {
+		@apply font-sans;
+	}
+	h1, h2, h3, h4, h5, h6 {
+		@apply font-serif;
+	}
+
+	/* Link styling - only for inline text links */
+	p a, li a, .prose a {
+		color: var(--color-brand-primary);
+		text-decoration: none;
+	}
+	p a:hover, li a:hover, .prose a:hover {
+		color: var(--color-brand-secondary);
+		text-decoration: underline;
+		text-underline-offset: 2px;
+	}
+}
+
+@layer components {
+	/* Button primitives */
+	.btn {
+		@apply inline-flex items-center justify-center px-5 py-3 font-semibold uppercase tracking-wider;
+		@apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2;
+		@apply transition-opacity;
+	}
+	.btn:hover {
+		@apply opacity-90 no-underline;
+		color: inherit;
+	}
+	.btn-primary {
+		color: #ffffff;
+		background-color: var(--color-brand-primary);
+	}
+	.btn-secondary {
+		background-color: transparent;
+		border: 1px solid var(--color-brand-primary);
+		color: var(--color-brand-primary);
+	}
+
+	/* CTA button style */
+	.btn-cta:hover {
+		opacity: 0.9;
+	}
+}
+
+@layer utilities {
+	/* Utility for eyebrow small-caps */
+	.small-caps {
+		font-variant-caps: all-small-caps;
+	}
+}
+
+/* Prose defaults for basic typography on stub pages */
+.prose-stub {
+	@apply max-w-3xl mx-auto px-6 py-8 text-slate-800;
+}
+
+

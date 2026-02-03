@@ -1,0 +1,41 @@
+{
+  "_comment": "Testimonials displayed on the homepage. Add new testimonials by copying an entry and updating the fields.",
+  "testimonials": [
+    {
+      "quote": "Sarah and I worked closely for over three years at Vor Bio, and I can't speak highly enough of her contributions. She built our corporate communications function from the ground up, transforming how we connect both internally and externally from launching our company intranet to establishing our social media presence. She also was responsible for investor relations which shows how broad her skillset is. What I valued most was her collaborative spirit, positive energy, and strong values which made her not just an exceptional colleague, but someone I genuinely enjoyed working with every day.",
+      "author": "Amy Quinlan",
+      "title": "Vice President, Finance",
+      "company": "Voyager Therapeutics",
+      "image": null
+    },
+    {
+      "quote": "Sarah has been a great client and partner, on and off, for many years. Smart, understands the power of integrated strategy, bringing together investor relations, corp / product comms, and advocacy to drive commercial success.",
+      "author": "Paul George",
+      "title": "Global Head of Health",
+      "company": "OmniCom Public Relations Group",
+      "image": null
+    },
+    {
+      "quote": "Sarah is an expert strategist with a keen sense of the role communications plays in establishing a corporate presence, strengthening reputation and driving the business. She is a problem solver who works alongside business leaders to deliver results, and she brings deep understanding of the biopharmaceutical industry and the issues they face today.",
+      "author": "Sarah Alspach",
+      "title": "Executive Vice President and Chief Communications Officer",
+      "company": "BIO",
+      "image": null
+    },
+    {
+      "quote": "Sarah is by far the best corporate communications leader I have ever worked with. She helped me think differently about the entire subject, and her efforts at Audentes played a significant role in our ability to build on successes and to navigate challenges. I hope I have the chance to work with her again in the future!",
+      "author": "Matthew Patterson",
+      "title": "Venture Partner, SR One Capital & former Chairman & CEO",
+      "company": "Audentes Therapeutics",
+      "image": null
+    },
+    {
+      "quote": "Sarah is a rare senior communicator able to set a clear strategy and vision but also able to get deep into the execution. I have had the unique position of working with Sarah as a peer and as a client. In both regards, I admire her no-nonsense direct but savvy, and thoughtful approach. Her clear direction and understanding of the health care environment allowed our team to quickly align behind her vision. Sarah also brings a great sense of humor and you can always count on her to get the job done.",
+      "author": "Karen Hagens",
+      "title": "Owner & Founder",
+      "company": "KTH Communications",
+      "image": null
+    }
+  ]
+}
+

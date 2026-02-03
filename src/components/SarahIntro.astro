@@ -1,0 +1,52 @@
+---
+import site from '../content/site-config.json';
+
+const founder = (site as any).founder ?? {};
+const founderName: string = founder.name ?? "Sarah Jess Spencer";
+const founderBio: string = founder.bio ?? "The founder of SJS Communications, and a seasoned communication professional with 25 years of experience in healthcare and life sciences.";
+const founderImage: string = founder.image ?? "/assets/images/sarah-headshot.jpg";
+---
+
+<section aria-labelledby="sarah-intro-heading" class="relative isolate overflow-hidden">
+	<!-- Full-bleed Sarah photo background -->
+	<div class="absolute inset-0">
+		<img
+			src={founderImage}
+			alt=""
+			loading="lazy"
+			decoding="async"
+			class="h-full w-full object-cover"
+			style="object-position: 97% 1%;"
+		/>
+	</div>
+
+	<!-- Content -->
+	<div class="relative mx-auto max-w-[1400px] px-[4vw] py-20 sm:py-28 lg:py-36">
+		<div class="grid grid-cols-1 lg:grid-cols-12">
+			<!-- Spacer (left 8 cols on desktop) -->
+			<div class="hidden lg:block lg:col-span-8"></div>
+
+			<!-- Text card (right 4 cols on desktop) -->
+			<div class="lg:col-span-4">
+				<div class="bg-white p-8 sm:p-10 text-center" style="aspect-ratio: 5 / 7; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+					<img
+						src="/assets/images/hey-im-sarah.png"
+						alt="Hey! I'm Sarah."
+						class="w-48 sm:w-56 h-auto"
+						loading="lazy"
+						decoding="async"
+					/>
+					<h4 id="sarah-intro-heading" class="sr-only">Hey! I'm Sarah.</h4>
+					<p class="mt-6 text-sm font-semibold text-slate-700 leading-relaxed">
+						{founderBio}
+					</p>
+					<div class="mt-8">
+						<a href="/about" class="btn btn-primary rounded-full px-8 py-3 text-sm">
+							LET'S MEET
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

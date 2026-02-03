@@ -1,0 +1,186 @@
+{
+  "_comment": "Global site configuration. Edit these values to update site-wide settings.",
+  "site": {
+    "name": "SJS Communications",
+    "tagline": "Biotechnology Communications Consulting",
+    "description": "SJS Communications is a biotechnology communications consulting agency focused on bringing science to life.",
+    "url": "https://www.sjscomms.com",
+    "email": "sarah@sjscomms.com",
+    "location": "Bryn Mawr, PA"
+  },
+  "founder": {
+    "name": "Sarah Jess Spencer",
+    "title": "Founder",
+    "bio": "Sarah Jess Spencer is the founder of SJS Communications, and a seasoned communication professional with 25 years of experience in healthcare and life sciences. She is the idea-machine behind every strategy that SJS plans and executes. You have her individual attention when you decide to work with SJS.",
+    "image": "/assets/images/sarah-headshot.jpg"
+  },
+  "branding": {
+    "logo": "/assets/images/sjs-logo.png",
+    "logoMobile": "/assets/images/sjs-logo-mobile.png",
+    "primaryColor": "#1399D7",
+    "secondaryColor": "#0D9488",
+    "accentColor": "#2DD4BF"
+  },
+  "social": {
+    "linkedin": "https://www.linkedin.com/company/sjs-communications",
+    "twitter": null
+  },
+  "navigation": [
+    { "label": "Home", "href": "/" },
+    { "label": "Services", "href": "/services" },
+    { "label": "About", "href": "/about" },
+    { "label": "Contact", "href": "/contact" }
+  ],
+  "cta": {
+    "primary": {
+      "text": "GET STARTED",
+      "href": "/contact"
+    },
+    "secondary": {
+      "text": "LET'S MEET",
+      "href": "/about"
+    }
+  },
+  "hero": {
+    "subtitle": "BIOTECHNOLOGY COMMUNICATIONS CONSULTING",
+    "title": "WE'RE BRINGING\nCOMMUNICATIONS\nSTRATEGY TO A\nWHOLE NEW LEVEL",
+    "body": "SJS Communications is a biotechnology communications consulting agency. We were founded to assist clients with a variety of communications needs no matter what stage of development they are in. We're focused on providing creative and personalized services in the highly regulated biotech industry. Led by a seasoned veteran of the industry, SJS leverages our extensive experience to",
+    "bodyLinkText": "drive results",
+    "bodyLinkHref": "/about#driveresults",
+    "bodyEnd": "that speak for themselves.",
+    "ctaText": "LEVEL UP WITH US",
+    "ctaHref": "/contact",
+    "backgroundImage": "/assets/images/hero-background.jpg",
+    "showRightAccent": true,
+    "showPortrait": true,
+    "showBody": false,
+    "portraitImage": "/assets/images/hero-portrait.jpg",
+    "portraitAlt": "Sarah Jess Spencer, Founder of SJS Communications"
+  },
+  "valueProps": [
+    {
+      "image": "/assets/images/value-prop-1.png",
+      "alt": "Individual attention to clients",
+      "lines": ["INDIVIDUAL", "ATTENTION TO", "CLIENTS"]
+    },
+    {
+      "image": "/assets/images/value-prop-2.png",
+      "alt": "Experienced counsel from a 25-year industry vet",
+      "lines": ["EXPERIENCED", "COUNSEL FROM", "A 25-YEAR", "INDUSTRY VET"]
+    },
+    {
+      "image": "/assets/images/value-prop-3.png",
+      "alt": "Ingenuity creativity integrity attitude",
+      "lines": ["INGENUITY", "CREATIVITY", "INTEGRITY", "ATTITUDE"]
+    }
+  ],
+  "aboutPreview": {
+    "heading": "And that's a great thing!",
+    "body": "Sarah Jess Spencer is the founder of SJS Communications, and she is the idea-machine behind every strategy that SJS plans and executes. You have her individual attention when you decide to work with SJS.",
+    "posterImage": "/assets/images/sjs-text-block.jpg"
+  },
+  "strategy": {
+    "left": {
+      "paragraph": "SJS Communications is a biotechnology communications consulting agency. We were founded to assist clients with a variety of communications needs no matter what stage of development they are in. We're focused on providing creative and personalized services in the highly regulated biotech industry. Led by a seasoned veteran of the industry, SJS leverages our extensive experience to",
+      "afterLink": "that speak for themselves."
+    },
+    "right": {
+      "paragraph": "We set ambitious goals for ourselves and our clients. We always strive to do what is in our client's best interest, because we want a real partnership with you. We want to become your trusted adviser in all things communications-driven as we help steer your business toward long-term success. Let’s work together to achieve your goals!"
+    }
+  },
+  "testimonials": {
+    "sectionTitle": "CLIENT LOVE",
+    "backgroundColor": "#1399D7"
+  },
+  "forms": {
+    "provider": "mailto",
+    "note": "Using simple mailto links for contact. Can upgrade to Formspree/Google Forms later."
+  },
+  "footer": {
+    "tagline": "SJS Communications is a biotechnology communications consulting firm focused on bringing science to life."
+  },
+  "servicesPage": {
+    "hero": {
+      "titleLine1": "WE'RE HERE TO BRING",
+      "titleLine2": "YOUR SCIENCE TO",
+      "titleItalic": "LIFE",
+      "subtitle": "We develop thoughtful communication strategies that are geared toward evolving your business. Whether you are in your very early stages prior to going public, are looking to build the next phase of your communications approach, or want to re-evaluate the strategies you have used so far, we can work with you to achieve your specific goals!",
+      "backgroundImage": "/assets/images/services-hero-bg.png"
+    },
+    "expertise": {
+      "title": "OUR AREAS OF",
+      "titleItalic": "EXPERTISE",
+      "items": [
+        "Media Relations",
+        "Executive Thought Leadership",
+        "Message & Narrative Development",
+        "Crisis & Issues Management",
+        "Investor & Financial Communications",
+        "Writing & Editing, including Press Releases, Op Ed/Editorials, Bylined articles, and Blog Posts"
+      ]
+    },
+    "additional": {
+      "title": "WE ALSO HELP WITH…",
+      "items": [
+        {
+          "title": "Brand & Reputation Building",
+          "image": "/assets/images/service-brand.jpg"
+        },
+        {
+          "title": "Event Sponsorships",
+          "image": "/assets/images/service-events.jpg"
+        },
+        {
+          "title": "Social Media Strategy",
+          "image": "/assets/images/service-social.jpg"
+        },
+        {
+          "title": "Internal Engagement & Communications",
+          "image": "/assets/images/service-internal.jpg"
+        }
+      ]
+    },
+    "companyDescription": "SJS Communications is an independently owned and run consulting firm that brings science to life through creative and authentic communication strategies. We love the work we do and are seeking clients who are equally as passionate and results-driven. And it's definitely a plus if they like to have fun!",
+    "portfolio": {
+      "title": "SARAH",
+      "titleItalic": "IN ACTION",
+      "items": [
+        {
+          "title": "Vor Biopharma",
+          "image": "/assets/images/portfolio-vor.png",
+          "type": "client"
+        },
+        {
+          "title": "STAT News Coverage",
+          "image": "/assets/images/portfolio-stat.png",
+          "type": "media"
+        },
+        {
+          "title": "Luke Timmerman Podcast",
+          "image": "/assets/images/portfolio-podcast.png",
+          "type": "podcast"
+        },
+        {
+          "title": "Pharma Voice 100",
+          "image": "/assets/images/portfolio-pharmavoice.png",
+          "type": "recognition"
+        },
+        {
+          "title": "Life Science Leader",
+          "image": "/assets/images/portfolio-lifescience.png",
+          "type": "publication"
+        },
+        {
+          "title": "Conference Speaking",
+          "image": "/assets/images/portfolio-conference.jpg",
+          "type": "event"
+        }
+      ]
+    },
+    "contact": {
+      "title": "REACH OUT TO",
+      "titleItalic": "WORK WITH",
+      "titleItalic2": "US…"
+    }
+  }
+}

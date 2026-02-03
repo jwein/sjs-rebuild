@@ -1,0 +1,25 @@
+{
+  "_comment": "Client logos for the scrolling logo wall. To add a new client: 1) Add logo image to /src/assets/logos/ 2) Add entry below",
+  "clients": [
+    {
+      "name": "Vor Bio",
+      "logo": "/assets/logos/vor-bio.svg",
+      "url": "https://www.vorbio.com",
+      "active": true
+    },
+    {
+      "name": "Audentes Therapeutics",
+      "logo": "/assets/logos/audentes.png",
+      "url": null,
+      "active": false,
+      "_note": "Logo file missing - set active when audentes.png is added to /public/assets/logos/"
+    },
+    {
+      "name": "Voyager Therapeutics",
+      "logo": "/assets/logos/voyager.png",
+      "url": "https://www.voyagertherapeutics.com",
+      "active": true
+    }
+  ]
+}
+

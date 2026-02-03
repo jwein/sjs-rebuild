@@ -1,0 +1,59 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import DnaSection from '../components/DnaSection.astro';
+import site from '../content/site-config.json';
+---
+
+<BaseLayout title="Contact">
+	<!-- Hero Section -->
+	<section class="relative bg-white">
+		<div class="p-8 sm:p-10 md:p-12 lg:p-14">
+			<div class="relative">
+				<img
+					src="/assets/images/sarah-contact.jpg"
+					alt="Sarah Spencer"
+					class="w-full h-auto"
+				/>
+			</div>
+		</div>
+	</section>
+
+	<!-- Contact Section -->
+	<section class="py-16 sm:py-20 md:py-24 bg-white">
+		<div class="mx-auto max-w-[1100px] px-[4vw]">
+			<h1 class="text-left text-slate-900 font-serif mb-6" style="font-size: calc(2.2vw + 1.2rem);">
+				GET IN <em class="italic">TOUCH</em>
+			</h1>
+			<p class="text-slate-800 text-lg sm:text-xl font-thin leading-relaxed mb-10" style="line-height: 1.8;">
+				We'd love to hear from you. Whether you have a question about our services, want to discuss a potential project, or just want to say hello, we're here for you.
+			</p>
+
+			<div class="text-center sm:text-left">
+				<a
+					href={`mailto:${site.site.email}?subject=Inquiry from SJS Communications Website`}
+					class="inline-block rounded-full font-serif font-light text-white bg-[#4F3F90] hover:bg-[#3d3070] px-10 py-3 text-lg tracking-wider transition-colors"
+				>
+					SEND US AN EMAIL
+				</a>
+			</div>
+
+			<div class="mt-12 pt-12 border-t border-slate-200">
+				<div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+					<div>
+						<h2 class="text-slate-900 font-serif text-xl mb-3">Email</h2>
+						<a href={`mailto:${site.site.email}`} class="text-[#1399D7] hover:underline text-lg">{site.site.email}</a>
+					</div>
+					<div>
+						<h2 class="text-slate-900 font-serif text-xl mb-3">Location</h2>
+						<p class="text-slate-700 text-lg">{site.site.location}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- DNA Section -->
+	<DnaSection />
+</BaseLayout>
+
+

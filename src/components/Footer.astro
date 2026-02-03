@@ -1,0 +1,85 @@
+---
+import site from '../content/site-config.json';
+---
+
+<footer>
+	<!-- Upper section - Blue background -->
+	<div class="bg-[#1399D7] py-12 sm:py-16">
+		<div class="mx-auto max-w-[1400px] px-[4vw]">
+			<div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+				<!-- Left side - Logo and tagline -->
+				<div class="flex items-start gap-6">
+					<!-- Logo circle -->
+					<div class="flex-shrink-0 w-32 h-32 sm:w-40 sm:h-40 rounded-full bg-[#3b82f6]/30 flex items-center justify-center">
+						<img src="/assets/images/sjs-logo-mobile.png" alt="SJS Communications" class="h-24 sm:h-32 w-auto" />
+					</div>
+					<!-- Tagline -->
+					<p class="text-white text-lg sm:text-xl font-bold leading-relaxed max-w-md">
+						SJS Communications is a biotechnology communications consulting firm focused on bringing science to life.
+					</p>
+				</div>
+
+				<!-- Right side - Navigation and Contact -->
+				<div class="grid grid-cols-2 gap-8">
+					<!-- Navigation -->
+					<div>
+						<h3 class="text-white font-serif text-xl sm:text-2xl mb-4">NAVIGATION</h3>
+						<div class="border-t border-white/30 pt-4">
+							<ul class="space-y-3">
+								<li>
+									<a href="/" class="text-white hover:text-white/80 text-sm underline">+ Home</a>
+								</li>
+								<li>
+									<a href="/services" class="text-white hover:text-white/80 text-sm underline">+ Services</a>
+								</li>
+								<li>
+									<a href="/about" class="text-white hover:text-white/80 text-sm underline">+ About</a>
+								</li>
+								<li>
+									<a href="/contact" class="text-white hover:text-white/80 text-sm underline">+ Contact</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<!-- Contact -->
+					<div>
+						<h3 class="text-white font-serif italic text-xl sm:text-2xl mb-4">CONTACT</h3>
+						<div class="border-t border-white/30 pt-4 space-y-3">
+							<a href={`mailto:${site.site.email}`} class="block text-white hover:text-white/80 text-sm underline">
+								{site.site.email}
+							</a>
+							<p class="text-white text-sm">{site.site.location}</p>
+							{site.social?.linkedin && (
+								<a
+									href={site.social.linkedin}
+									target="_blank"
+									rel="noopener noreferrer"
+									class="inline-flex items-center justify-center w-10 h-10 bg-white rounded-lg hover:bg-white/90 transition-colors"
+									aria-label="LinkedIn"
+								>
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" class="h-5 w-5 text-[#1399D7]">
+										<path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.03-1.85-3.03-1.86 0-2.14 1.45-2.14 2.94v5.66H9.34V9.75h3.42v1.46h.05c.48-.9 1.64-1.85 3.38-1.85 3.62 0 4.29 2.38 4.29 5.47v5.62ZM6.18 8.29a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14ZM7.96 20.45H4.39V9.75h3.57v10.7Z"/>
+									</svg>
+								</a>
+							)}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Lower section - Dark navy background -->
+	<div class="bg-[#1a1a2e] py-16 sm:py-20">
+		<div class="mx-auto max-w-[1400px] px-[4vw]">
+			<div class="flex justify-center items-center gap-2 text-white text-sm">
+				<a href="/cookie-policy" class="underline hover:text-white/80">Cookie Policy</a>
+				<span>|</span>
+				<a href="/privacy" class="underline hover:text-white/80">Privacy Policy</a>
+				<span>|</span>
+				<a href="/terms" class="underline hover:text-white/80">Terms & Conditions</a>
+			</div>
+		</div>
+	</div>
+</footer>
