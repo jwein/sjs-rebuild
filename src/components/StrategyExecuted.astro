@@ -1,5 +1,6 @@
 ---
 import site from '../content/site-config.json';
+import { pagePath } from '../utils/paths';
 const strategy = (site as any).strategy ?? {};
 const left = strategy.left ?? {};
 const right = strategy.right ?? {};
@@ -16,7 +17,7 @@ const right = strategy.right ?? {};
 				<p>
 					{left.paragraph}
 					{' '}
-					<a href="/about#driveresults" class="underline underline-offset-4 text-white">
+					<a href={pagePath("/about#driveresults")} class="underline underline-offset-4 text-white">
 						drive results
 					</a>
 					{' '}

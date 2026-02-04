@@ -7,7 +7,7 @@ import sitemap from '@astrojs/sitemap';
 // When switching to custom domain, change site to 'https://www.sjscomms.com' and remove base
 export default defineConfig({
 	site: 'https://jwein.github.io',
-	base: '/sjs-rebuild',
+	base: '/sjs-rebuild/',
 	integrations: [tailwind(), sitemap()],
 	output: 'static'
 });

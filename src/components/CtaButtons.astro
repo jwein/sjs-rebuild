@@ -1,11 +1,12 @@
 ---
+import { assetPath, pagePath } from '../utils/paths';
 ---
 
 <section aria-label="Call to action" class="relative min-h-[300px] sm:min-h-[350px]">
 	<!-- Full-width background image -->
 	<div class="absolute inset-0">
 		<img
-			src="/assets/images/cta-left.jpg"
+			src={assetPath("/assets/images/cta-left.jpg")}
 			alt=""
 			loading="lazy"
 			decoding="async"
@@ -18,7 +19,7 @@
 		<!-- Left panel - Contact -->
 		<div class="flex items-center justify-center py-12">
 			<a
-				href="/contact"
+				href={pagePath("/contact")}
 				class="btn-cta rounded-full bg-[#4F3F90] text-white px-12 py-4 text-base tracking-widest uppercase font-light transition-opacity"
 			>
 				CONTACT
@@ -28,7 +29,7 @@
 		<!-- Right panel - Services -->
 		<div class="flex items-center justify-center py-12">
 			<a
-				href="/services"
+				href={pagePath("/services")}
 				class="btn-cta rounded-full bg-[#4F3F90]/80 text-white px-12 py-4 text-base tracking-widest uppercase font-light transition-opacity"
 			>
 				SERVICES
