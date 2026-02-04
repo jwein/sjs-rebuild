@@ -1,5 +1,6 @@
 ---
 import site from '../content/site-config.json';
+import { assetPath } from '../utils/paths';
 
 const about = (site as any).aboutPreview ?? {};
 
@@ -7,6 +8,8 @@ const heading: string = about.heading ?? "And that's a great thing!";
 const body: string =
 	about.body ??
 	"Sarah Jess Spencer is the founder of SJS Communications, and she is the idea-machine behind every strategy that SJS plans and executes. You have her individual attention when you decide to work with SJS.";
+
+const bgUrl = assetPath('/assets/images/about-background.jpg');
 ---
 
 <section aria-labelledby="about-preview-heading" class="relative overflow-hidden" id="about-preview-section">
@@ -16,23 +19,23 @@ const body: string =
 		<div
 			id="about-bg-base"
 			class="absolute inset-0 w-[110%] h-[110%] -left-[5%] -top-[5%] bg-cover bg-center will-change-transform"
-			style="background-image: url('/assets/images/about-background.jpg');"
+			style={`background-image: url('${bgUrl}');`}
 		></div>
 		<!-- Fixed circle layers - large circles centered on page -->
 		<div
 			id="about-circle-1"
 			class="absolute rounded-full overflow-hidden will-change-transform pointer-events-none"
-			style="width: 1800px; height: 1800px; left: 50%; top: 50%; transform: translate(-50%, -50%); background-image: url('/assets/images/about-background.jpg'); background-size: 100% 100%; background-position: center;"
+			style={`width: 1800px; height: 1800px; left: 50%; top: 50%; transform: translate(-50%, -50%); background-image: url('${bgUrl}'); background-size: 100% 100%; background-position: center;`}
 		></div>
 		<div
 			id="about-circle-2"
 			class="absolute rounded-full overflow-hidden will-change-transform pointer-events-none"
-			style="width: 1500px; height: 1500px; left: 50%; top: 50%; transform: translate(-50%, -50%); background-image: url('/assets/images/about-background.jpg'); background-size: 120% 120%; background-position: center;"
+			style={`width: 1500px; height: 1500px; left: 50%; top: 50%; transform: translate(-50%, -50%); background-image: url('${bgUrl}'); background-size: 120% 120%; background-position: center;`}
 		></div>
 		<div
 			id="about-circle-3"
 			class="absolute rounded-full overflow-hidden will-change-transform pointer-events-none"
-			style="width: 1200px; height: 1200px; left: 50%; top: 50%; transform: translate(-50%, -50%); background-image: url('/assets/images/about-background.jpg'); background-size: 150% 150%; background-position: center;"
+			style={`width: 1200px; height: 1200px; left: 50%; top: 50%; transform: translate(-50%, -50%); background-image: url('${bgUrl}'); background-size: 150% 150%; background-position: center;`}
 		></div>
 	</div>
 

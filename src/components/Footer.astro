@@ -1,5 +1,6 @@
 ---
 import site from '../content/site-config.json';
+import { assetPath, pagePath } from '../utils/paths';
 ---
 
 <footer>
@@ -11,7 +12,7 @@ import site from '../content/site-config.json';
 				<div class="flex items-start gap-6">
 					<!-- Logo circle -->
 					<div class="flex-shrink-0 w-32 h-32 sm:w-40 sm:h-40 rounded-full bg-[#3b82f6]/30 flex items-center justify-center">
-						<img src="/assets/images/sjs-logo-mobile.png" alt="SJS Communications" class="h-24 sm:h-32 w-auto" />
+						<img src={assetPath("/assets/images/sjs-logo-mobile.png")} alt="SJS Communications" class="h-24 sm:h-32 w-auto" />
 					</div>
 					<!-- Tagline -->
 					<p class="text-white text-lg sm:text-xl font-bold leading-relaxed max-w-md">
@@ -27,16 +28,16 @@ import site from '../content/site-config.json';
 						<div class="border-t border-white/30 pt-4">
 							<ul class="space-y-3">
 								<li>
-									<a href="/" class="text-white hover:text-white/80 text-sm underline">+ Home</a>
+									<a href={pagePath("/")} class="text-white hover:text-white/80 text-sm underline">+ Home</a>
 								</li>
 								<li>
-									<a href="/services" class="text-white hover:text-white/80 text-sm underline">+ Services</a>
+									<a href={pagePath("/services")} class="text-white hover:text-white/80 text-sm underline">+ Services</a>
 								</li>
 								<li>
-									<a href="/about" class="text-white hover:text-white/80 text-sm underline">+ About</a>
+									<a href={pagePath("/about")} class="text-white hover:text-white/80 text-sm underline">+ About</a>
 								</li>
 								<li>
-									<a href="/contact" class="text-white hover:text-white/80 text-sm underline">+ Contact</a>
+									<a href={pagePath("/contact")} class="text-white hover:text-white/80 text-sm underline">+ Contact</a>
 								</li>
 							</ul>
 						</div>
@@ -74,11 +75,11 @@ import site from '../content/site-config.json';
 	<div class="bg-[#1a1a2e] py-16 sm:py-20">
 		<div class="mx-auto max-w-[1400px] px-[4vw]">
 			<div class="flex justify-center items-center gap-2 text-white text-sm">
-				<a href="/cookie-policy" class="underline hover:text-white/80">Cookie Policy</a>
+				<a href={pagePath("/cookie-policy")} class="underline hover:text-white/80">Cookie Policy</a>
 				<span>|</span>
-				<a href="/privacy" class="underline hover:text-white/80">Privacy Policy</a>
+				<a href={pagePath("/privacy")} class="underline hover:text-white/80">Privacy Policy</a>
 				<span>|</span>
-				<a href="/terms" class="underline hover:text-white/80">Terms & Conditions</a>
+				<a href={pagePath("/terms")} class="underline hover:text-white/80">Terms & Conditions</a>
 			</div>
 		</div>
 	</div>

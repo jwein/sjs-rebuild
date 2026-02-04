@@ -2,6 +2,7 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import site from '../content/site-config.json';
+import { assetPath } from '../utils/paths';
 import '../styles/global.css';
 
 const { title, description } = Astro.props;
@@ -37,7 +38,7 @@ const canonicalUrl = new URL(Astro.url.pathname, (Astro.site ?? site.site.url)).
 		<meta name="twitter:card" content="summary" />
 		<meta name="twitter:title" content={pageTitle} />
 		<meta name="twitter:description" content={pageDescription} />
-		<link rel="icon" href="/favicon.ico" />
+		<link rel="icon" href={assetPath("/favicon.ico")} />
 	</head>
 	<body class="min-h-screen flex flex-col bg-white text-slate-900">
 		<Header />

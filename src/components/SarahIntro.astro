@@ -1,5 +1,6 @@
 ---
 import site from '../content/site-config.json';
+import { assetPath, pagePath } from '../utils/paths';
 
 const founder = (site as any).founder ?? {};
 const founderName: string = founder.name ?? "Sarah Jess Spencer";
@@ -11,7 +12,7 @@ const founderImage: string = founder.image ?? "/assets/images/sarah-headshot.jpg
 	<!-- Full-bleed Sarah photo background -->
 	<div class="absolute inset-0">
 		<img
-			src={founderImage}
+			src={assetPath(founderImage)}
 			alt=""
 			loading="lazy"
 			decoding="async"
@@ -30,7 +31,7 @@ const founderImage: string = founder.image ?? "/assets/images/sarah-headshot.jpg
 			<div class="lg:col-span-4">
 				<div class="bg-white p-8 sm:p-10 text-center" style="aspect-ratio: 5 / 7; display: flex; flex-direction: column; align-items: center; justify-content: center;">
 					<img
-						src="/assets/images/hey-im-sarah.png"
+						src={assetPath("/assets/images/hey-im-sarah.png")}
 						alt="Hey! I'm Sarah."
 						class="w-48 sm:w-56 h-auto"
 						loading="lazy"
@@ -41,7 +42,7 @@ const founderImage: string = founder.image ?? "/assets/images/sarah-headshot.jpg
 						{founderBio}
 					</p>
 					<div class="mt-8">
-						<a href="/about" class="btn btn-primary rounded-full px-8 py-3 text-sm">
+						<a href={pagePath("/about")} class="btn btn-primary rounded-full px-8 py-3 text-sm">
 							LET'S MEET
 						</a>
 					</div>

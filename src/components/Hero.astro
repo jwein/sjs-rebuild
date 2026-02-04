@@ -1,5 +1,6 @@
 ---
 import site from '../content/site-config.json';
+import { assetPath, pagePath } from '../utils/paths';
 const hero = (site as any).hero ?? {};
 ---
 
@@ -9,7 +10,7 @@ const hero = (site as any).hero ?? {};
 		<div
 			id="hero-parallax-bg"
 			class="absolute inset-0 w-full h-[130%] bg-cover bg-left md:bg-center will-change-transform"
-			style={`background-image: url(${hero.backgroundImage ?? '/assets/images/hero-background.jpg'})`}
+			style={`background-image: url(${assetPath(hero.backgroundImage ?? '/assets/images/hero-background.jpg')})`}
 		></div>
 	</div>
 	<!-- Content -->
@@ -19,12 +20,12 @@ const hero = (site as any).hero ?? {};
 				<div class="flex justify-center mb-8 lg:mb-0 lg:col-span-6">
 					<div class="relative w-full max-w-[280px] sm:max-w-[340px] lg:max-w-[400px] aspect-[4/5] min-h-[320px] sm:min-h-[380px] lg:min-h-[450px] overflow-hidden">
 						<img
-							src={hero.portraitImage ?? (site as any).founder?.image ?? '/assets/images/sarah-headshot.jpg'}
+							src={assetPath(hero.portraitImage ?? (site as any).founder?.image ?? '/assets/images/sarah-headshot.jpg')}
 							alt={hero.portraitAlt ?? (site as any).founder?.name ?? 'Founder portrait'}
 							class="absolute inset-0 h-full w-full object-cover object-center grayscale"
 							loading="eager"
 							decoding="async"
-							onerror="this.onerror=null;this.src='/assets/images/portrait-placeholder.svg';"
+							onerror={`this.onerror=null;this.src='${assetPath('/assets/images/portrait-placeholder.svg')}';`}
 						/>
 					</div>
 				</div>
@@ -50,7 +51,7 @@ const hero = (site as any).hero ?? {};
 				)}
 				<div class="mt-8 flex justify-center lg:justify-start">
 					<a
-						href={hero.ctaHref ?? '/contact'}
+						href={pagePath(hero.ctaHref ?? '/contact')}
 						class="btn rounded-full font-serif font-light text-white bg-[#4F3F90] hover:bg-[#3d3070] px-8 sm:px-10 py-3 sm:py-4 text-base sm:text-lg tracking-wider"
 						aria-label={hero.ctaText ?? 'LEVEL UP WITH US'}
 					>

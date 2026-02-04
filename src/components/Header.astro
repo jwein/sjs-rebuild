@@ -1,14 +1,15 @@
 ---
 import site from '../content/site-config.json';
+import { assetPath, pagePath } from '../utils/paths';
 
 const currentPath = Astro.url.pathname;
 ---
 
 <header data-site-header class="sticky top-0 z-50 bg-white transition-shadow">
 	<div class="px-4 sm:px-6 py-[6vw] lg:py-[3vw] flex items-center justify-between">
-		<a href="/" class="inline-flex items-center shrink-0" aria-label={site.site.name}>
+		<a href={pagePath("/")} class="inline-flex items-center shrink-0" aria-label={site.site.name}>
 			<img
-				src={site.branding.logo}
+				src={assetPath(site.branding.logo)}
 				alt={site.site.name}
 				class="h-[75px] lg:h-[113px] w-auto"
 				loading="eager"
@@ -20,8 +21,8 @@ const currentPath = Astro.url.pathname;
 		<nav aria-label="Main" class="hidden lg:flex items-center gap-8">
 			{site.navigation.map((item) => (
 				<a
-					href={item.href}
-					class={`text-base font-normal uppercase tracking-[0.2em] hover:text-teal-600 ${currentPath === item.href ? 'text-slate-700 underline underline-offset-8 decoration-2' : 'text-slate-700'}`}
+					href={pagePath(item.href)}
+					class={`text-base font-normal uppercase tracking-[0.2em] hover:text-teal-600 ${currentPath === pagePath(item.href) || currentPath === item.href ? 'text-slate-700 underline underline-offset-8 decoration-2' : 'text-slate-700'}`}
 				>
 					{item.label}
 				</a>
@@ -35,7 +36,7 @@ const currentPath = Astro.url.pathname;
 					class="inline-flex items-center text-slate-900 hover:text-teal-600"
 				>
 					<img
-						src="/assets/images/linkedin-icon.png"
+						src={assetPath("/assets/images/linkedin-icon.png")}
 						alt="LinkedIn"
 						class="h-7 w-7 rounded-sm"
 						loading="eager"
@@ -43,7 +44,7 @@ const currentPath = Astro.url.pathname;
 					/>
 				</a>
 			)}
-			<a href="/services" class="ml-4 px-7 py-4 rounded-full bg-[#1399D7] text-white text-base font-light uppercase tracking-[0.2em] hover:bg-[#0d7ab3] transition">
+			<a href={pagePath("/services")} class="ml-4 px-7 py-4 rounded-full bg-[#1399D7] text-white text-base font-light uppercase tracking-[0.2em] hover:bg-[#0d7ab3] transition">
 				GET STARTED
 			</a>
 		</nav>
@@ -82,8 +83,8 @@ const currentPath = Astro.url.pathname;
 				tabindex="-1"
 			>
 				<div class="flex items-center justify-between px-4 py-3 border-b border-slate-200">
-					<a href="/" class="inline-flex items-center" aria-label={site.site.name}>
-						<img src={site.branding.logoMobile} alt={site.site.name} class="h-8 w-auto" loading="eager" decoding="async" />
+					<a href={pagePath("/")} class="inline-flex items-center" aria-label={site.site.name}>
+						<img src={assetPath(site.branding.logoMobile)} alt={site.site.name} class="h-8 w-auto" loading="eager" decoding="async" />
 					</a>
 					<button
 						id="mobile-menu-close"
@@ -101,8 +102,8 @@ const currentPath = Astro.url.pathname;
 						{site.navigation.map((item) => (
 							<li>
 								<a
-									href={item.href}
-									class={`block rounded-md px-3 py-2 text-sm font-semibold uppercase tracking-wide hover:bg-slate-50 ${currentPath === item.href ? 'text-teal-700' : 'text-slate-700'}`}
+									href={pagePath(item.href)}
+									class={`block rounded-md px-3 py-2 text-sm font-semibold uppercase tracking-wide hover:bg-slate-50 ${currentPath === pagePath(item.href) || currentPath === item.href ? 'text-teal-700' : 'text-slate-700'}`}
 								>
 									{item.label}
 								</a>

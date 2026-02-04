@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import DnaSection from '../components/DnaSection.astro';
 import site from '../content/site-config.json';
+import { assetPath } from '../utils/paths';
 
 const services = (site as any).servicesPage ?? {};
 const hero = services.hero ?? {};
@@ -18,7 +19,7 @@ const contact = services.contact ?? {};
 		<div class="absolute inset-0">
 			<div
 				class="absolute inset-0 w-full h-full bg-cover bg-center"
-				style={`background-image: url(${hero.backgroundImage ?? '/assets/images/hero-background.jpg'})`}
+				style={`background-image: url(${assetPath(hero.backgroundImage ?? '/assets/images/hero-background.jpg')})`}
 			></div>
 		</div>
 		<!-- Content -->
@@ -46,7 +47,7 @@ const contact = services.contact ?? {};
 				<!-- Image -->
 				<div>
 					<img
-						src="/assets/images/expertise-photo.webp"
+						src={assetPath("/assets/images/expertise-photo.webp")}
 						alt="Professional working at desk"
 						class="w-full h-auto"
 						loading="lazy"
@@ -76,7 +77,7 @@ const contact = services.contact ?? {};
 				<!-- Left Column -->
 				<div class="pr-0 md:pr-12 md:border-r border-slate-300">
 					<img
-						src="/assets/images/service-brand.jpg"
+						src={assetPath("/assets/images/service-brand.jpg")}
 						alt="Brand and reputation building"
 						class="w-full h-auto mb-8"
 						loading="lazy"
@@ -96,7 +97,7 @@ const contact = services.contact ?? {};
 				<!-- Right Column -->
 				<div class="pl-0 md:pl-12 mt-12 md:mt-0">
 					<img
-						src="/assets/images/service-social.jpg"
+						src={assetPath("/assets/images/service-social.jpg")}
 						alt="Social media strategy"
 						class="w-full h-auto mb-8"
 						loading="lazy"
@@ -124,7 +125,7 @@ const contact = services.contact ?? {};
 			<div
 				id="company-bg"
 				class="absolute inset-0 w-[120%] h-[120%] -left-[10%] -top-[10%] bg-cover bg-center"
-				style="background-image: url('/assets/images/company-description-bg.jpg');"
+				style={`background-image: url('${assetPath("/assets/images/company-description-bg.jpg")}');`}
 			></div>
 		</div>
 		<!-- Content -->
@@ -179,11 +180,11 @@ const contact = services.contact ?? {};
 					<figure
 						class="portfolio-item group relative overflow-hidden rounded-lg aspect-[16/10] bg-slate-200 cursor-pointer"
 						data-index={idx}
-						data-image={item.image}
+						data-image={assetPath(item.image)}
 						data-title={item.title}
 					>
 						<img
-							src={item.image}
+							src={assetPath(item.image)}
 							alt={item.title}
 							class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
 							loading="lazy"
@@ -252,7 +253,7 @@ const contact = services.contact ?? {};
 		<!-- Sarah Image - full width -->
 		<div class="mx-auto max-w-[1100px] px-[4vw] mb-10 sm:mb-14">
 			<img
-				src="/assets/images/sarah-contact.jpg"
+				src={assetPath("/assets/images/sarah-contact.jpg")}
 				alt="Sarah Spencer at her desk"
 				class="w-full h-auto"
 				loading="lazy"

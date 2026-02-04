@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import DnaSection from '../components/DnaSection.astro';
 import site from '../content/site-config.json';
+import { assetPath } from '../utils/paths';
 ---
 
 <BaseLayout title="About">
@@ -12,7 +13,7 @@ import site from '../content/site-config.json';
 			<!-- Image container -->
 			<div class="relative">
 				<img
-					src="/assets/images/sarah-headshot-about.jpg"
+					src={assetPath("/assets/images/sarah-headshot-about.jpg")}
 					alt="Sarah Spencer"
 					class="w-full h-auto"
 				/>
@@ -42,7 +43,7 @@ import site from '../content/site-config.json';
 			<!-- Image - full width of container -->
 			<div class="mb-12 sm:mb-16">
 				<img
-					src="/assets/images/sarah-meet-section.jpg"
+					src={assetPath("/assets/images/sarah-meet-section.jpg")}
 					alt="Sarah Spencer"
 					class="w-full h-auto"
 					loading="lazy"
@@ -73,7 +74,7 @@ import site from '../content/site-config.json';
 		<div class="absolute inset-0">
 			<div
 				class="absolute inset-0 w-full h-full bg-cover bg-center"
-				style="background-image: url('/assets/images/about-patient-bg.png');"
+				style={`background-image: url('${assetPath("/assets/images/about-patient-bg.png")}');`}
 			></div>
 		</div>
 		<!-- Content -->
@@ -120,18 +121,18 @@ import site from '../content/site-config.json';
 				class="flex overflow-x-auto scroll-smooth gap-0 hide-scrollbar"
 				style="scrollbar-width: none; -ms-overflow-style: none;"
 			>
-				<img src="/assets/images/carousel-1.jpg" alt="Sarah at work" class="h-64 sm:h-80 md:h-96 w-auto flex-shrink-0 object-cover" />
-				<img src="/assets/images/carousel-2.jpg" alt="PharmaVoice" class="h-64 sm:h-80 md:h-96 w-auto flex-shrink-0 object-cover" />
-				<img src="/assets/images/carousel-3.jpg" alt="Media appearance" class="h-64 sm:h-80 md:h-96 w-auto flex-shrink-0 object-cover" />
-				<img src="/assets/images/carousel-4.jpg" alt="Interview" class="h-64 sm:h-80 md:h-96 w-auto flex-shrink-0 object-cover" />
-				<img src="/assets/images/carousel-5.jpg" alt="Conference" class="h-64 sm:h-80 md:h-96 w-auto flex-shrink-0 object-cover" />
-				<img src="/assets/images/carousel-6.png" alt="Bloomberg" class="h-64 sm:h-80 md:h-96 w-auto flex-shrink-0 object-cover" />
-				<img src="/assets/images/carousel-7.jpg" alt="Event" class="h-64 sm:h-80 md:h-96 w-auto flex-shrink-0 object-cover" />
-				<img src="/assets/images/carousel-8.jpg" alt="Speaking" class="h-64 sm:h-80 md:h-96 w-auto flex-shrink-0 object-cover" />
-				<img src="/assets/images/carousel-9.jpg" alt="Media" class="h-64 sm:h-80 md:h-96 w-auto flex-shrink-0 object-cover" />
-				<img src="/assets/images/carousel-10.jpg" alt="Press" class="h-64 sm:h-80 md:h-96 w-auto flex-shrink-0 object-cover" />
-				<img src="/assets/images/carousel-11.png" alt="Fortune" class="h-64 sm:h-80 md:h-96 w-auto flex-shrink-0 object-cover" />
-				<img src="/assets/images/carousel-12.png" alt="Coverage" class="h-64 sm:h-80 md:h-96 w-auto flex-shrink-0 object-cover" />
+				<img src={assetPath("/assets/images/carousel-1.jpg")} alt="Sarah at work" class="h-64 sm:h-80 md:h-96 w-auto flex-shrink-0 object-cover" />
+				<img src={assetPath("/assets/images/carousel-2.jpg")} alt="PharmaVoice" class="h-64 sm:h-80 md:h-96 w-auto flex-shrink-0 object-cover" />
+				<img src={assetPath("/assets/images/carousel-3.jpg")} alt="Media appearance" class="h-64 sm:h-80 md:h-96 w-auto flex-shrink-0 object-cover" />
+				<img src={assetPath("/assets/images/carousel-4.jpg")} alt="Interview" class="h-64 sm:h-80 md:h-96 w-auto flex-shrink-0 object-cover" />
+				<img src={assetPath("/assets/images/carousel-5.jpg")} alt="Conference" class="h-64 sm:h-80 md:h-96 w-auto flex-shrink-0 object-cover" />
+				<img src={assetPath("/assets/images/carousel-6.png")} alt="Bloomberg" class="h-64 sm:h-80 md:h-96 w-auto flex-shrink-0 object-cover" />
+				<img src={assetPath("/assets/images/carousel-7.jpg")} alt="Event" class="h-64 sm:h-80 md:h-96 w-auto flex-shrink-0 object-cover" />
+				<img src={assetPath("/assets/images/carousel-8.jpg")} alt="Speaking" class="h-64 sm:h-80 md:h-96 w-auto flex-shrink-0 object-cover" />
+				<img src={assetPath("/assets/images/carousel-9.jpg")} alt="Media" class="h-64 sm:h-80 md:h-96 w-auto flex-shrink-0 object-cover" />
+				<img src={assetPath("/assets/images/carousel-10.jpg")} alt="Press" class="h-64 sm:h-80 md:h-96 w-auto flex-shrink-0 object-cover" />
+				<img src={assetPath("/assets/images/carousel-11.png")} alt="Fortune" class="h-64 sm:h-80 md:h-96 w-auto flex-shrink-0 object-cover" />
+				<img src={assetPath("/assets/images/carousel-12.png")} alt="Coverage" class="h-64 sm:h-80 md:h-96 w-auto flex-shrink-0 object-cover" />
 			</div>
 		</div>
 	</section>
@@ -160,7 +161,7 @@ import site from '../content/site-config.json';
 	<!-- Lab Scientists Image -->
 	<section class="overflow-hidden">
 		<img
-			src="/assets/images/about-engineering-bg.jpg"
+			src={assetPath("/assets/images/about-engineering-bg.jpg")}
 			alt="Scientists collaborating in laboratory"
 			class="w-full object-cover"
 			style="height: 500px; object-position: center 25%;"
@@ -177,7 +178,7 @@ import site from '../content/site-config.json';
 				SJS Communications was founded by Sarah Spencer. When you work with SJS, you get Sarah's one-on-one attention. More than that, we're excited to develop a relationship with you! Having fun, having a sense of humor and being authentic are our style. At the same time, the work we do is serious and potentially life-changing for patient populations we serve. Trust, integrity, and reputation are everything and we understand that. We work hard but living life to its fullest outside of work is also our priority.
 			</p>
 			<img
-				src="/assets/images/ethos-family.jpg"
+				src={assetPath("/assets/images/ethos-family.jpg")}
 				alt="Sarah with family"
 				class="w-full h-auto mt-12 sm:mt-16"
 			/>

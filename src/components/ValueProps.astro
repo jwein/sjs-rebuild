@@ -1,5 +1,6 @@
 ---
 import site from '../content/site-config.json';
+import { assetPath } from '../utils/paths';
 const items = (site as any).valueProps ?? [];
 
 const gridCols =
@@ -30,7 +31,7 @@ const gridCols =
 					<figure class="flex flex-col items-center text-center">
 						{imageSrc ? (
 							<img
-								src={imageSrc}
+								src={assetPath(imageSrc)}
 								alt={imageAlt}
 								width={imageWidth}
 								height={imageHeight}
