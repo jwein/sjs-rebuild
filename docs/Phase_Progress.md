@@ -142,6 +142,7 @@
 | Hero | ✅ Complete | Background image, typography, CTA |
 | Value Props | ⚠️ Review | Circular images - verify colors |
 | Logo Wall | ⚠️ Partial | Animation works, verify styling |
+| DNA Video | ✅ Complete | "Creative Communications..." video section |
 | About Preview | ✅ Complete | Layout fixed |
 | Testimonials | ⚠️ Partial | Add heading, teal background |
 | Footer | ✅ Complete | Two-section layout, logo, links |

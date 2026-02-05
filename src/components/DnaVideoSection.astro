@@ -1,0 +1,80 @@
+---
+const videoId = 'Kp83EFQdFcw';
+const videoSrc = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&loop=1&playlist=${videoId}&controls=0&modestbranding=1&playsinline=1&rel=0&fs=0&iv_load_policy=3`;
+---
+
+<section aria-label="Creative Communications DNA" class="dna-section relative isolate overflow-hidden bg-black">
+	<div class="absolute inset-0">
+		<iframe
+			class="dna-video"
+			src={videoSrc}
+			title="Creative Communications DNA background video"
+			frameborder="0"
+			allow="autoplay; encrypted-media; picture-in-picture"
+			allowfullscreen
+			aria-hidden="true"
+			tabindex="-1"
+		></iframe>
+	</div>
+	<div class="absolute inset-0 dna-overlay" aria-hidden="true"></div>
+
+	<div class="dna-content mx-auto max-w-[1400px] px-[4vw]">
+		<div class="text-center w-full">
+			<span class="dna-title text-white font-serif text-lg sm:text-2xl md:text-3xl lg:text-4xl tracking-[0.12em] uppercase">
+				CREATIVE COMMUNICATIONS STRATEGIES ARE IN OUR DNA
+			</span>
+		</div>
+	</div>
+
+	<style>
+		.dna-video {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			width: 100vw;
+			height: 56.25vw;
+			min-width: 177.78vh;
+			min-height: 100%;
+			max-width: none;
+			max-height: none;
+			transform: translate(-50%, -50%);
+			border: 0;
+			pointer-events: none;
+			z-index: 0;
+		}
+		.dna-section {
+			height: clamp(324px, 40.5vw, 576px);
+		}
+		.dna-overlay {
+			background: rgba(0, 0, 0, 0.6);
+			z-index: 1;
+		}
+		.dna-title {
+			text-shadow: 0 2px 12px rgba(0, 0, 0, 0.55);
+			background: transparent;
+			display: block;
+			word-wrap: break-word;
+			overflow-wrap: break-word;
+		}
+		@media (min-width: 1280px) {
+			.dna-title {
+				white-space: nowrap;
+				transform: scaleX(0.92);
+				transform-origin: center;
+			}
+		}
+		.dna-content {
+			position: relative;
+			z-index: 2;
+			height: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		@media (prefers-reduced-motion: reduce) {
+			.dna-video {
+				display: none;
+			}
+		}
+	</style>
+</section>
