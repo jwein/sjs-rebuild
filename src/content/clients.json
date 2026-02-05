@@ -1,5 +1,5 @@
 {
-  "_comment": "Client logos for the scrolling logo wall. To add a new client: 1) Add logo image to /src/assets/logos/ 2) Add entry below",
+  "_comment": "Client logos for the scrolling logo wall. To add a new client: 1) Add logo image (SVG or PNG) to /public/assets/logos/ 2) Add an entry below. That's it!",
   "clients": [
     {
       "name": "Vor Bio",
@@ -9,16 +9,29 @@
     },
     {
       "name": "Audentes Therapeutics",
-      "logo": "/assets/logos/audentes.png",
+      "logo": "/assets/logos/audentes.svg",
       "url": null,
-      "active": false,
-      "_note": "Logo file missing - set active when audentes.png is added to /public/assets/logos/"
+      "active": true
     },
     {
       "name": "Voyager Therapeutics",
       "logo": "/assets/logos/voyager.png",
       "url": "https://www.voyagertherapeutics.com",
       "active": true
+    },
+    {
+      "name": "Acme Biotech",
+      "logo": "/assets/logos/sample-client-1.svg",
+      "url": null,
+      "active": true,
+      "_note": "DEMO: Replace with real client logo"
+    },
+    {
+      "name": "NexGen Pharma",
+      "logo": "/assets/logos/sample-client-2.svg",
+      "url": null,
+      "active": true,
+      "_note": "DEMO: Replace with real client logo"
     }
   ]
 }

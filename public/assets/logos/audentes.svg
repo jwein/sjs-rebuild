@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="64" viewBox="0 0 220 64" role="img" aria-label="Audentes Therapeutics">
+  <rect width="100%" height="100%" rx="8" fill="#f0f4f8"/>
+  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="13" font-weight="600" fill="#1e3a5f" letter-spacing="0.5">
+    AUDENTES
+  </text>
+  <text x="50%" y="75%" dominant-baseline="middle" text-anchor="middle" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="9" fill="#4a6fa5" letter-spacing="1">
+    THERAPEUTICS
+  </text>
+</svg>

@@ -1,5 +1,6 @@
 ---
 import clientsData from '../content/clients.json';
+import { assetPath } from '../utils/paths';
 
 type Client = {
 	name: string;
@@ -11,6 +12,11 @@ type Client = {
 const clients: Client[] = (clientsData as any).clients.filter((c: Client) => c.active !== false);
 // Duplicate array once for seamless marquee loop
 const marqueeItems: Client[] = [...clients, ...clients];
+const { speed = 40, pauseOnHover = true } = Astro.props as {
+	speed?: number;
+	pauseOnHover?: boolean;
+};
+const marqueeStyle = `--marquee-duration: ${speed}s; --marquee-gap: 3rem;`;
 ---
 
 <section aria-label="Client logos" class="py-10">
@@ -18,18 +24,18 @@ const marqueeItems: Client[] = [...clients, ...clients];
 		<h2 class="text-center text-3xl sm:text-4xl font-bold font-serif text-slate-900 mb-8 sm:mb-10">OUR WORK</h2>
 
 		<!-- Animated marquee (default) -->
-		<div class="marquee relative overflow-hidden">
-			<div class="track flex items-center gap-12">
+		<div class="marquee relative overflow-hidden" style={marqueeStyle} data-pause={pauseOnHover ? 'true' : 'false'}>
+			<div class="track">
 				{marqueeItems.map((client) => {
 					const logoImg = (
 						<img
-							src={client.logo}
+							src={assetPath(client.logo)}
 							alt={client.name}
 							height="64"
 							decoding="async"
 							loading="lazy"
 							draggable="false"
-							onerror={`this.onerror=null;this.src='/assets/logos/placeholder.svg'`}
+							onerror={`this.onerror=null;this.src='${assetPath('/assets/logos/placeholder.svg')}'`}
 							class="h-12 sm:h-14 md:h-16 w-auto object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition duration-200 ease-out"
 						/>
 					);
@@ -53,13 +59,13 @@ const marqueeItems: Client[] = [...clients, ...clients];
 			{clients.map((client) => {
 				const logoImg = (
 					<img
-						src={client.logo}
+						src={assetPath(client.logo)}
 						alt={client.name}
 						height="64"
 						decoding="async"
 						loading="lazy"
 						draggable="false"
-						onerror={`this.onerror=null;this.src='/assets/logos/placeholder.svg'`}
+						onerror={`this.onerror=null;this.src='${assetPath('/assets/logos/placeholder.svg')}'`}
 						class="mx-auto h-12 sm:h-14 md:h-16 w-auto object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition duration-200 ease-out"
 					/>
 				);
@@ -89,6 +95,10 @@ const marqueeItems: Client[] = [...clients, ...clients];
 		}
 		.track {
 			/* 2x content; scroll one full set width to loop seamlessly */
+			display: inline-flex;
+			align-items: center;
+			gap: var(--marquee-gap);
+			padding-right: var(--marquee-gap);
 			animation: scroll-x var(--marquee-duration, 40s) linear infinite;
 			will-change: transform;
 		}
@@ -104,6 +114,11 @@ const marqueeItems: Client[] = [...clients, ...clients];
 		@media (prefers-reduced-motion: reduce) {
 			.marquee { display: none; }
 			.logo-grid { display: grid; }
+		}
+		/* Optional pause on hover/focus */
+		.marquee[data-pause="true"]:hover .track,
+		.marquee[data-pause="true"]:focus-within .track {
+			animation-play-state: paused;
 		}
 		/* Default: show marquee, hide grid version */
 		.logo-grid { display: none; }

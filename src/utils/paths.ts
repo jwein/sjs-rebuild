@@ -1,5 +1,6 @@
 // Utility to handle asset paths with base URL for GitHub Pages
-const base = import.meta.env.BASE_URL;
+// Hardcoded for GitHub Pages deployment - change when moving to custom domain
+const base = '/sjs-rebuild/';
 
 /**
  * Converts an absolute path to include the base URL
