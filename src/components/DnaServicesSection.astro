@@ -1,0 +1,123 @@
+---
+import { assetPath } from '../utils/paths';
+const bgImage = assetPath('/assets/images/services-dna-bg.jpg');
+---
+
+<section aria-label="Creative Communications DNA" class="dna-services-section relative isolate overflow-hidden">
+	<div class="parallax-bg absolute inset-0" data-parallax="zoom-out">
+		<div 
+			class="parallax-image absolute inset-0 w-full h-full bg-cover bg-center"
+			style={`background-image: url('${bgImage}')`}
+		></div>
+	</div>
+
+	<div class="dna-services-content mx-auto max-w-[1400px] px-[4vw]">
+		<div class="text-center w-full">
+			<span class="dna-services-title text-slate-900 font-serif text-lg sm:text-2xl md:text-3xl lg:text-4xl tracking-[0.12em] uppercase">
+				CREATIVE COMMUNICATIONS STRATEGIES ARE <em class="italic">IN OUR DNA</em>
+			</span>
+		</div>
+	</div>
+</section>
+
+<script>
+	// Parallax zoom-out effect on scroll
+	function initParallax() {
+		const section = document.querySelector('.dna-services-section') as HTMLElement;
+		const parallaxImage = section?.querySelector('.parallax-image') as HTMLElement;
+		
+		if (!section || !parallaxImage) return;
+
+		// Initial scale (zoomed in)
+		const initialScale = 1.15;
+		// Final scale (zoomed out)
+		const finalScale = 1.0;
+
+		function updateParallax() {
+			const rect = section.getBoundingClientRect();
+			const windowHeight = window.innerHeight;
+			
+			// Calculate how far through the viewport the section is
+			// 0 = section top is at viewport bottom
+			// 1 = section bottom is at viewport top
+			const progress = Math.max(0, Math.min(1, 
+				(windowHeight - rect.top) / (windowHeight + rect.height)
+			));
+
+			// Interpolate scale based on scroll progress
+			const scale = initialScale - (progress * (initialScale - finalScale));
+			
+			parallaxImage.style.transform = `scale(${scale})`;
+		}
+
+		// Run on scroll
+		window.addEventListener('scroll', updateParallax, { passive: true });
+		// Initial call
+		updateParallax();
+
+		// Cleanup on page navigation (for Astro view transitions)
+		document.addEventListener('astro:before-swap', () => {
+			window.removeEventListener('scroll', updateParallax);
+		});
+	}
+
+	// Initialize when DOM is ready
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', initParallax);
+	} else {
+		initParallax();
+	}
+
+	// Re-initialize on Astro page navigation
+	document.addEventListener('astro:page-load', initParallax);
+</script>
+
+<style>
+	.dna-services-section {
+		height: clamp(280px, 35vw, 480px);
+	}
+
+	.parallax-bg {
+		overflow: hidden;
+	}
+
+	.parallax-image {
+		will-change: transform;
+		transform: scale(1.15);
+		transition: transform 0.1s ease-out;
+	}
+
+	.dna-services-title {
+		display: block;
+		word-wrap: break-word;
+		overflow-wrap: break-word;
+	}
+
+	.dna-services-title em {
+		font-style: italic;
+	}
+
+	@media (min-width: 1280px) {
+		.dna-services-title {
+			white-space: nowrap;
+			transform: scaleX(0.92);
+			transform-origin: center;
+		}
+	}
+
+	.dna-services-content {
+		position: relative;
+		z-index: 2;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.parallax-image {
+			transform: scale(1) !important;
+			transition: none;
+		}
+	}
+</style>

@@ -168,6 +168,7 @@
 | Company Description | ⚠️ Review | Need to compare |
 | Sarah In Action | ⚠️ Review | Need to compare |
 | Contact Section | ✅ Complete | Using mailto link |
+| DNA Section | ✅ Complete | Dark text, parallax zoom-out, static background |
 
 ### Typography
 - [ ] Serif font for headings (Playfair Display or similar)
@@ -298,3 +299,26 @@
   - Created .github/workflows/deploy.yml for automatic deployments
   - Created .gitignore file
   - Ready to push to github.com/jwein/sjs-rebuild
+
+### February 5, 2026
+- **Logo Wall Animation Fixed**:
+  - Fixed CSS marquee animation for GitHub Pages deployment
+  - Added CSS variables for configurable duration and gap
+  - Ensured seamless infinite loop with proper translateX calculation
+
+- **Homepage DNA Video Section Added**:
+  - Created DnaVideoSection component with YouTube video background
+  - Implemented responsive text with proper wrapping on mobile
+  - Added dark overlay for readability
+  - Text condensed on large screens, wraps naturally on smaller screens
+
+- **CTA Buttons Relocated**:
+  - Moved "Work With Us" and "Get In Touch" CTA buttons to appear only on /about page
+  - Removed from contact and services pages
+
+- **Services Page DNA Section Added**:
+  - Created DnaServicesSection component with static background image
+  - Dark navy text instead of white (unlike homepage video version)
+  - "IN OUR DNA" styled in italics
+  - Parallax zoom-out effect on scroll using JavaScript scroll listener
+  - Background image downloaded locally for reliability

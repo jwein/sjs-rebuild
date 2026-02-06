@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import DnaServicesSection from '../components/DnaServicesSection.astro';
 import site from '../content/site-config.json';
 import { assetPath } from '../utils/paths';
 
@@ -279,6 +280,9 @@ const contact = services.contact ?? {};
 			</div>
 		</div>
 	</section>
+
+	<!-- DNA Section -->
+	<DnaServicesSection />
 
 </BaseLayout>
 
